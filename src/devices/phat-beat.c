@@ -85,7 +85,7 @@ static int init(void){
 }
 
 static void set_level(int meter_level, int brightness, int reverse, int meter){
-    int bar = (meter_level / 32767.0f) * (brightness * (NUM_PIXELS/2));
+    int bar = (meter_level * (meter_level / 8) / 1200000.0f) * (brightness * (NUM_PIXELS/2));
     int offset = meter * 8;
 
     if(bar < 0) {bar = 0;}
